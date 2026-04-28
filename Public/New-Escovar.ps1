@@ -1,4 +1,4 @@
-function smuggle {
+function New-Escovar {
     $cwd = (Get-Location).ProviderPath
     
     # Search for any .coca file

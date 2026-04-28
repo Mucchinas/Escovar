@@ -3,7 +3,7 @@
 # ==========================================
 
 Write-Host "==========================================" -ForegroundColor DarkCyan
-Write-Host " Escovar Installer - The Cartel Operations" -ForegroundColor DarkCyan
+Write-Host "            Escovar Installer             " -ForegroundColor DarkCyan
 Write-Host "==========================================" -ForegroundColor DarkCyan
 Write-Host ""
 
@@ -92,7 +92,7 @@ if (-not (Test-Path $profileDir)) {
     New-Item -ItemType Directory -Path $profileDir -Force | Out-Null
 }
 
-$importCommand = "Import-Module Escovar -DisableNameChecking"
+$importCommand = "Import-Module Escovar"
 
 # Controllo se il modulo è già nel profilo
 $alreadyHooked = $false

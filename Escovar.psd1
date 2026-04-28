@@ -7,7 +7,7 @@
     Copyright = '(c) 2026. All rights reserved.'
     Description = 'A blazingly fast, secure, and native direnv alternative for PowerShell.'
     PowerShellVersion = '7.0'
-    FunctionsToExport = @('smuggle', 'Invoke-Escovar')
+    FunctionsToExport = @('New-Escovar', 'Get-Escovar', 'Remove-Escovar', 'Invoke-Escovar')
     VariablesToExport = @()
     AliasesToExport = @()
     CmdletsToExport = @()

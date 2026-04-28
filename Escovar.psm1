@@ -14,4 +14,4 @@ Get-ChildItem -Path (Join-Path $moduleRoot "Public") -Filter "*.ps1" -File | For
 Initialize-Escovar
 
 # Expose only public commands
-Export-ModuleMember -Function smuggle, Invoke-Escovar
+Export-ModuleMember -Function New-Escovar, Get-Escovar, Remove-Escovar, Invoke-Escovar

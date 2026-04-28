@@ -16,7 +16,7 @@ $isRoot = ($IsLinux -and ((id -u) -match "^0$"))
 $hasAdminPrivileges = ($isAdmin -or $isRoot)
 
 # --- 1. Find and Destroy the Module ---
-Write-Host "Scanning for cartel infrastructure..." -ForegroundColor White
+Write-Host "Scanning for infrastructure..." -ForegroundColor White
 
 $separator = [System.IO.Path]::PathSeparator
 $modulePaths = $env:PSModulePath -split $separator
@@ -84,4 +84,4 @@ if ($burnChoice -match "^[yY]") {
     Write-Host "Ledger preserved." -ForegroundColor Gray
 }
 
-Write-Host "`nCleanup operation complete. The cartel was never here." -ForegroundColor DarkCyan
+Write-Host "`nCleanup operation complete. We were never here." -ForegroundColor DarkCyan
