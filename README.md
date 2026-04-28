@@ -28,3 +28,46 @@ Add the following line to your `$PROFILE`:
 
 ```powershell
 . "$HOME\\.config\\escovar\\escovar.ps1
+```
+
+### 3. Create **.coca** file 
+Create one in each folder that requires specific env vars:
+
+```text
+# .coca
+$env:DB_USER = "pablo"
+$env:DB_PASS = "plata_o_plomo"
+$env:ENVIRONMENT = "production"
+```
+
+### 4. Smuggle your vars!
+Escovar won't scan your dirs unless explicitly told. Use **smuggle** to mark your folder as scannable. Escovar will permanently
+save the current dir and the first suitable **.coca** file as safe and automatically load and unload the env variables once you cd
+into that folder:
+
+```console
+PS C:\Users\User\Projects\folder> smuggle
+[escovar] Bribe accepted. Route secured and added to the ledger.
+[escovar] Smuggling payload from 'C:\Users\User\Projects\folder\var.coca' into the system...
+[escovar]   + supplied: DB_USER 
+[escovar]   + supplied: DB_PASS
+[escovar]   + supplied: ENVIRONMENT 
+```
+It will also restore the env variables to their original state on dir exit:
+
+```console
+PS C:\Users\User\Projects\folder> cd ..            
+[escovar] Burning evidence from 'C:\Users\User\Projects\folder\var.coca'...
+[escovar]   - confiscated: DB_USER 
+[escovar]   - confiscated: DB_PASS
+[escovar]   - confiscated: ENVIRONMENT 
+```
+
+If the **.coca** file hash changes, it must be smuggled again to prevent tampering:
+
+```console
+[escovar] RAT DETECTED! The stash in C:\Users\User\Projects\folder has been cut or tampered with.
+[escovar] Type 'smuggle' to verify the new purity.
+```
+
+Safe dirs and **.coca** hashes are saved in $HOME\\.config\\escovar\\ledger.txt
