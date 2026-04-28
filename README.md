@@ -26,7 +26,7 @@ Clone the repo and run `Install.ps1` to install the module.
 Add the following line to your `$PROFILE`:
 
 ```powershell
-. Import-Module Escovar
+Import-Module Escovar
 ```
 
 ### 3. Create **.coca** file 
