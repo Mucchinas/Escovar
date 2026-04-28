@@ -7,9 +7,13 @@ Write-Host " Escovar Uninstaller - Burning Evidence" -ForegroundColor DarkCyan
 Write-Host "==========================================" -ForegroundColor DarkCyan
 Write-Host ""
 
-$isAdmin = (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-$isRoot = ($IsLinux -and (id -u) -eq "0")
-$hasAdminPrivileges = $isAdmin -or $isRoot
+# --- 0. Controllo Privilegi ---
+$isAdmin = $false
+if ($IsWindows) {
+    $isAdmin = (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+$isRoot = ($IsLinux -and ((id -u) -match "^0$"))
+$hasAdminPrivileges = ($isAdmin -or $isRoot)
 
 # --- 1. Find and Destroy the Module ---
 Write-Host "Scanning for cartel infrastructure..." -ForegroundColor White
