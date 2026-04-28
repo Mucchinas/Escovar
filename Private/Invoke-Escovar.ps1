@@ -17,7 +17,7 @@ function Invoke-Escovar {
                 return 
             } else {
                 Write-EscovarLog "ALERT! The stash in $currentPath has been tampered with." "Red"
-                Write-EscovarLog "Type 'smuggle' to verify the new purity." "Yellow"
+                Write-EscovarLog "Type 'New-Escovar' to restart operation." "Yellow"
             }
         }
     }
