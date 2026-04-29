@@ -41,7 +41,7 @@ ENVIRONMENT = "production"
 
 ### 4. Smuggle your vars!
 Escovar won't scan your dirs unless explicitly told. Use **New-Escovar** to mark the current folder as scannable. Escovar will permanently
-save the current dir and the first suitable **.coca** file as safe and automatically load and unload the env variables once you cd
+save the current dir and the first suitable **.coca** file as safe and automatically load the env variables once you cd
 into that folder:
 
 ```powershell
@@ -94,7 +94,7 @@ PS C:\Users\User\Projects\folder> Get-Escovar -a
   Territory: C:\Users\User\Projects\folder1 -> C:\Users\User\Projects\folder1\vars.coca
 ```
 
-Remove a folder from the **ledger** with **Remove-Escovar**:
+Remove current folder from the **ledger** with **Remove-Escovar**:
 
 ```powershell
 PS C:\Users\User\Projects\folder> Remove-Escovar
