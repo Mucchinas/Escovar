@@ -20,13 +20,24 @@ Built with an uncompromising focus on performance and security, Escovar operates
 ## Installation
 
 ### 1. Installation
-Clone the repo and run `Install.ps1` to install the module.
+Clone the repo and run `Install.ps1` to install the module or run:
+
+```powershell
+Install-Module Escovar -Scope CurrentUser
+```
 
 ### 2. Hook it into your Profile
 Add the following line to your `$PROFILE`:
 
 ```powershell
 Import-Module Escovar
+```
+
+or run:
+
+```powershell
+if (-not (Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }
+Add-Content -Path $PROFILE -Value "`n# Escovar - Environment Manager`nImport-Module Escovar"
 ```
 
 ### 3. Create **.coca** file 
